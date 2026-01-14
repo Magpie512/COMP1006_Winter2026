@@ -44,7 +44,7 @@ class Person {
 
     public function __construct(string $name, int $age, bool $isStudent) {
         $this->name = $name;
-        $this->age = $age
+        $this->age = $age;
         $this->isStudent = $isStudent;
         }
 
