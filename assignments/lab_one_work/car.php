@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1); // Enable strict types
-
 class Car {
     private string $make;
     private string $model;
