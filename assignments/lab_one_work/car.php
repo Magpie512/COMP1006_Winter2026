@@ -1,6 +1,7 @@
 <?php
 
 class Car {
+    // Declares 
     private string $make;
     private string $model;
     private int $year;
