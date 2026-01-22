@@ -14,29 +14,23 @@
 
         SO we need more files!
     */
-
-$items = ["Home", "About", "Contact"];
-
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My PHP Page</title>
-</head>
-<body>
 
-<h1>Welcome</h1>
+<?php
+// Logic/Data Section representing items to display in the nav menu
+$items = ["Home", "About", "Contact"];
+
+// Header Include
+include('header.php'); 
+?>
 
 <ul>
-<?php foreach ($items as $item): ?>
-    <li><?= $item ?></li>
-<?php endforeach; ?>
+    <?php foreach ($items as $item): ?>
+        <li><?= htmlspecialchars($item) ?></li>
+    <?php endforeach; ?>
 </ul>
 
-<footer>
-    <p>&copy; 2026</p>
-</footer>
+<?php include('footer.php'); ?>
 
-</body>
-</html>
+<!-- God the dracula theme for php sucks this all looks like its incorrect but its not -->
