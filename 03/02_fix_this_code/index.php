@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php 
+declare(strict_types=1);
 // Turn on error reporting so syntax and runtime errors are visible during development
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -22,4 +23,3 @@ try {
 catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
 }
-?>
