@@ -13,10 +13,24 @@ Lab One Instructions:
 
 /16 marks 
 
-*/ 
+Reflection:
+I found creating the Car class fairly easy since it followed the same structure 
+as other object‑oriented examples. The PDO connection was a bit more challenging 
+because I had to remember the correct DSN format and how try/catch works in PHP. 
+Once it connected successfully, everything else made sense.
+*/
 
 require "header.php";
 require "connect.php";  
-echo "<p> Follow the instructions outlined in instructions.txt to complete this lab. Good luck & have fun!😀 </p>";
-include "car.php"; 
-require "footer.php"; 
+include "car.php";
+
+// Create a new Car object
+$myCar = new Car("Toyota", "Corolla", 2020);
+
+// Output car info to the browser
+echo "<p>" . $myCar->getCarInfo() . "</p>";
+
+echo "<p>Follow the instructions outlined in instructions.txt to complete this lab. Good luck & have fun!😀</p>";
+
+require "footer.php";
+?>

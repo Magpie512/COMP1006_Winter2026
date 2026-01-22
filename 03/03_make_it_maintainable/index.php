@@ -10,7 +10,7 @@
         I need to avoid repetition
         I need to make it easy to update
         and
-        make it easier to understand, maintainm, and something something scale better
+        make it easier to understand, maintain, and something something scale better
 
         SO we need more files!
     */
