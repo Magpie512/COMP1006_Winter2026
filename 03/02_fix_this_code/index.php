@@ -23,3 +23,5 @@ try {
 catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
 }
+
+#fuck this goddamn XAMP Database error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) bullshit. im tired. i did it.
