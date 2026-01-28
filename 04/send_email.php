@@ -1,3 +1,4 @@
+<!-- not needed and idk if this works. not a live serverthis is local -->
 <?php
 // Checks to see if form is submitted
 if ($_POST) {

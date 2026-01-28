@@ -34,4 +34,7 @@ foreach ($_POST['items'] as $item => $quantity) {
 
 echo "</ul>";
 
-echo "Once again, thank you for shopping with us!";
+echo "<h3>Additional Comments:</h3>";
+if (!empty($_POST['comments'])) {
+    echo "<p>" . nl2br(htmlspecialchars($_POST['comments'])) . "</p>";
+} 
