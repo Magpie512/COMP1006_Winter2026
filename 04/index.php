@@ -12,7 +12,8 @@
       <input type="text" id="first_name" name="first_name" required placeholder="Alex">
 
       <label for="last_name">Last name</label>
-      <input type="text" id="last_name" name="last_name" required placeholder="Briggs">
+      <input type="text" id="last_name" name="last_name" required placeholder="Newhook">
+      <!-- MY WIFE !!! -->
 
       <label for="phone">Phone number</label>
       <input type="text" id="phone" name="phone" placeholder="555-123-4567" required>
@@ -116,4 +117,5 @@
 
 </html>
 
+<?php require "process.php" ?>
 <?php require "includes/footer.php" ?>
