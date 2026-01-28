@@ -16,13 +16,13 @@
       <!-- MY WIFE !!! -->
 
       <label for="phone">Phone number</label>
-      <input type="text" id="phone" name="phone" placeholder="555-123-4567" required>
+      <input type="text" id="phone" name="phone" placeholder="555-123-4567" required type="tel">
 
       <label for="address">Address</label>
       <input type="text" id="address" name="address" required placeholder="123 Street Street">
 
       <label for="email">Email Address</label>
-      <input type="text" id="email" name="email" required placeholder="For your online reciept">
+      <input type="text" id="email" name="email" required type="email" placeholder="For your online reciept">
     </fieldset>
 
     <!-- Order Details -->
@@ -117,5 +117,4 @@
 
 </html>
 
-<?php require "process.php" ?>
 <?php require "includes/footer.php" ?>
