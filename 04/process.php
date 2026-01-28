@@ -1,4 +1,8 @@
 <?php
+require "includes/header.php";
+?>
+
+<?php
 
 echo "<h1>Order Confirmation</h1>";
 echo "<p>Thank you for your order!</p>";
@@ -10,6 +14,57 @@ $lastName = $_POST['last_name'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 $email = $_POST['email'];
+/*
+$message = $_POST['message'];
+$subject = "BITYMI | New Order from " . $firstName . " " . $lastName;
+
+// Email settings
+    $to = 'your-email@example.com'; // Replace with your email
+    $subject = 'BITYMI | New Contact Form Submission';
+    $email_body = "Name: $firstName $lastName\nEmail: $email\n\nMessage:\n$message";
+    $headers = "From: $email\r\n"; // Sender's email
+    $headers .= "Reply-To: $email\r\n"; // Allows reply
+*/
+
+# Server validation
+
+// Validate email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die('Invalid email format. Please go back and enter a valid email address.');
+}
+
+//validate first name
+if (empty($firstName) || !preg_match("/^[a-zA-Z-' ]*$/", $firstName)) {
+    die('Invalid first name. Please go back and enter a valid first name.');
+}
+
+//validate last name
+if (empty($lastName) || !preg_match("/^[a-zA-Z-' ]*$/", $lastName)) {
+    die('Invalid last name. Please go back and enter a valid last name.');
+}
+
+//validate address
+if (!filter_var($address, FILTER_SANITIZE_STRING)) {
+    die('Invalid address format. Please go back and enter a valid address.');
+}
+
+//Validate comment
+if (!filter_var($_POST['comments'], FILTER_SANITIZE_STRING)) {
+    die('Invalid comments format. Please go back and enter valid comments.');
+}
+
+// Validate phone number (basic validation)
+if (!filter_var($phone, FILTER_SANITIZE_STRING)) {
+    die('Invalid phone number format. Please go back and enter a valid phone number.');
+}   
+/*
+// Send email
+    if (mail($to, $subject, $email_body, $headers)) {
+        echo 'Email sent successfully!';
+    } else {
+        echo 'Failed to send email. Check server settings.';
+    }
+*/
 
 echo "<h3>Customer Information:</h3>";
 echo "<p>";
@@ -44,3 +99,4 @@ echo "<h3>Additional Comments:</h3>";
 if (!empty($_POST['comments'])) {
     echo "<p>" . nl2br(htmlspecialchars($_POST['comments'])) . "</p>";
 } 
+
