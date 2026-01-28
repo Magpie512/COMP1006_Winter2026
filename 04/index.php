@@ -1,7 +1,9 @@
 <?php require "includes/header.php" ?>
 <main>
-  <h2> Order Online - Easy & Simple (And Totally Secure...) 🧁</h2>
+  <h2> Order Online - Easy & Simple</h2> <!-- chat gpt emojis,, Naughty Naughty Johnny -->
   <form action="process.php" method="post">
+    <!-- GET is not for sending info to the server
+     puts info in string -->
 
     <!-- Customer Information -->
     <fieldset>
@@ -14,11 +16,13 @@
         <input type="text" id="phone" name="phone" placeholder="555-123-4567">
         <label for="address">Address</label>
         <input type="text" id="address" name="address">
-        <label for="email">Address</label>
+        <label for="email">Email Address</label>
         <input type="text" id="email" name="email">
     </fieldset>
 
     <!-- Order Details -->
+
+    <!-- I wanna see if i can change the text input for orders to like up down increase decrease thingys -->
     <fieldset>
       <legend>Order Details</legend>
 
@@ -35,7 +39,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Chaos Croissant 🥐</th>
+            <th scope="row">Chaos Croissant</th> 
             <td>
               <label for="chaos_croissant" class="visually-hidden">Chaos Croissant quantity</label>
               <input type="text" id="chaos_croissant" name="items[chaos_croissant]" min="0" max="24" value="0">
@@ -43,7 +47,7 @@
           </tr>
 
           <tr>
-            <th scope="row">Midnight Muffin 🌙</th>
+            <th scope="row">Midnight Muffin</th>
             <td>
               <label for="midnight_muffin" class="visually-hidden">Midnight Muffin quantity</label>
               <input type="text" id="midnight_muffin" name="items[midnight_muffin]" min="0" max="24" value="0">
@@ -51,7 +55,7 @@
           </tr>
 
           <tr>
-            <th scope="row">Existential Éclair 🤔</th>
+            <th scope="row">Existential Éclair</th>
             <td>
               <label for="existential_eclair" class="visually-hidden">Existential Éclair quantity</label>
               <input type="text" id="existential_eclair" name="items[existential_eclair]" min="0" max="24"
@@ -60,7 +64,7 @@
           </tr>
 
           <tr>
-            <th scope="row">Procrastination Cookie ⏰</th>
+            <th scope="row">Procrastination Cookie</th>
             <td>
               <label for="procrastination_cookie" class="visually-hidden">Procrastination Cookie quantity</label>
               <input type="text" id="procrastination_cookie" name="items[procrastination_cookie]" min="0" max="24"
@@ -69,7 +73,7 @@
           </tr>
 
           <tr>
-            <th scope="row">Finals Week Brownie 📚</th>
+            <th scope="row">Finals Week Brownie</th>
             <td>
               <label for="finals_week_brownie" class="visually-hidden">Finals Week Brownie quantity</label>
               <input type="text" id="finals_week_brownie" name="items[finals_week_brownie]" min="0" max="24"
@@ -78,7 +82,7 @@
           </tr>
 
           <tr>
-            <th scope="row">Victory Cinnamon Roll 🏆</th>
+            <th scope="row">Victory Cinnamon Roll</th>
             <td>
               <label for="victory_cinnamon_roll" class="visually-hidden">Victory Cinnamon Roll quantity</label>
               <input type="text" id="victory_cinnamon_roll" name="items[victory_cinnamon_roll]" min="0" max="24"
@@ -94,7 +98,7 @@
       <legend>Additional Comments</legend>
 
       <p>
-        <label for="comments">Comments (optional)</label><br>
+        <label for="comments">Comments (optional, but appreciated)</label><br>
         <textarea id="comments" name="comments" rows="4"
           placeholder="Allergies, delivery instructions, custom messages..."></textarea>
       </p>
