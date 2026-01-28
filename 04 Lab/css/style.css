@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+}
+
+header > h1{
+    align-items: center;
+    display: flex;
+    margin-left: -30px;
+
+}
+nav {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin-left: auto;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.logo {
+    height: 100px;
+    display: inline-block;
+    
+}
+
+main {
+    margin: 20px;
+}
+
+main > h2{
+    text-align: center;
+    
+    font-family: "Ephesis", cursive;
+    font-weight: 1200;
+    font-style: normal;
+    letter-spacing: 10px;
+    font-size: 48px;
+
+    margin: 0px;
+    margin-top: -15px;
+
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: max-content;
+    width: auto;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+label, input, select, textarea {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.customer-info {
+    margin-right: 20px;
+}
