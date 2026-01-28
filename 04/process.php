@@ -5,12 +5,18 @@ echo "<p>Thank you for your order!</p>";
 
 echo "<h2>Order Summary:</h2>";
 
+$firstName = $_POST['first_name'];
+$lastName = $_POST['last_name'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$email = $_POST['email'];
+
 echo "<h3>Customer Information:</h3>";
 echo "<p>";
-echo "Name: " . htmlspecialchars($_POST['first_name']) . " " . htmlspecialchars($_POST['last_name']) . "<br>";
-echo "Phone: " . htmlspecialchars($_POST['phone']) . "<br>";
-echo "Address: " . htmlspecialchars($_POST['address']) . "<br>";
-echo "Email: " . htmlspecialchars($_POST['email']) . "<br>";
+echo "Name: " . $firstName . " " . $lastName . "<br>";
+echo "Phone: " . $phone . "<br>";
+echo "Address: " . $address . "<br>";
+echo "Email: " . $email . "<br>";
 echo "</p>";
 
 echo "<h3>Items Ordered:</h3>";
@@ -28,7 +34,7 @@ $item_names = [
 
 foreach ($_POST['items'] as $item => $quantity) {
     if ($quantity > 0) {
-        echo "<li>" . htmlspecialchars($item_names[$item]) . ": " . htmlspecialchars($quantity) . "</li>";
+        echo "<li>" . $item_names[$item] . ": " . $quantity . "</li>";
     }
 }
 
