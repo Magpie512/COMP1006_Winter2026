@@ -10,11 +10,53 @@ echo "<p>Thank you for your order!</p>";
 
 echo "<h2>Order Summary:</h2>";
 
-$firstName = $_POST['first_name'];
-$lastName = $_POST['last_name'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$email = $_POST['email'];
+//filter_input is for getting user inputs safely
+//filter_var is for validating data
+
+//Sanitization for user inputs
+$firstName = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
+$lastName = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
+$phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS);
+$address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_SPECIAL_CHARS);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+
+//Validation
+$errors = [];
+
+//FN
+if ($firstName == null || $firstName == "") {
+    $errors[] = "First name is required.";
+    exit;
+}
+
+//LN
+if ($lastName == null || $lastName == "") {
+    $errors[] = "Last name is required.";
+    exit;
+}
+
+//AD
+if ($address == null || $address == "") {
+    $errors[] = "Address is required.";
+    exit;
+}
+
+//EM
+if ($email == null || $email == "") {
+    $errors[] = "Email address is required.";
+    exit;
+}
+
+//Phone Validation
+$phonePattern = "/^\d{3}-\d{3}-\d{4}$/";
+
+//Order Validation
+$itemsOrdered = [];
+
+if (count($itemsOrdered) == 0) {
+    $errors[] = "At least one item must be ordered.";
+    exit;
+}
 
 /*
 $message = $_POST['message'];
@@ -28,37 +70,6 @@ $subject = "BITYMI | New Order from " . $firstName . " " . $lastName;
     $headers .= "Reply-To: $email\r\n"; // Allows reply
 */
 
-# Server validation
-
-// Validate email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die('Invalid email format. Please go back and enter a valid email address.');
-}
-
-//validate first name
-if (empty($firstName) || !preg_match("/^[a-zA-Z-' ]*$/", $firstName)) {
-    die('Invalid first name. Please go back and enter a valid first name.');
-}
-
-//validate last name
-if (empty($lastName) || !preg_match("/^[a-zA-Z-' ]*$/", $lastName)) {
-    die('Invalid last name. Please go back and enter a valid last name.');
-}
-
-//validate address
-if (!filter_var($address, FILTER_SANITIZE_STRING)) {
-    die('Invalid address format. Please go back and enter a valid address.');
-}
-
-//Validate comment
-if (!filter_var($_POST['comments'], FILTER_SANITIZE_STRING)) {
-    die('Invalid comments format. Please go back and enter valid comments.');
-}
-
-// Validate phone number (basic validation)
-if (!filter_var($phone, FILTER_SANITIZE_STRING)) {
-    die('Invalid phone number format. Please go back and enter a valid phone number.');
-}   
 /*
 // Send email
     if (mail($to, $subject, $email_body, $headers)) {
@@ -67,6 +78,8 @@ if (!filter_var($phone, FILTER_SANITIZE_STRING)) {
         echo 'Failed to send email. Check server settings.';
     }
 */
+
+/********************************************************************/
 
 echo "<h3>Customer Information:</h3>";
 echo "<p>";
