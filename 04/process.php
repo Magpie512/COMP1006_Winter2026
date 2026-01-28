@@ -11,3 +11,5 @@ foreach ($_POST['items'] as $item => $quantity) {
     }
 }
 echo "</ul>";
+
+echo "Once again, thank you for shopping with us!";
