@@ -14,6 +14,7 @@ $lastName = $_POST['last_name'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 $email = $_POST['email'];
+
 /*
 $message = $_POST['message'];
 $subject = "BITYMI | New Order from " . $firstName . " " . $lastName;
@@ -100,3 +101,4 @@ if (!empty($_POST['comments'])) {
     echo "<p>" . nl2br(htmlspecialchars($_POST['comments'])) . "</p>";
 } 
 
+require "includes/footer.php";
