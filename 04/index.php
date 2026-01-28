@@ -8,16 +8,20 @@
     <!-- Customer Information -->
     <fieldset>
       <legend>Customer Information</legend>
-        <label for="first_name">First name</label>
-        <input type="text" id="first_name" name="first_name">
-        <label for="last_name">Last name</label>
-        <input type="text" id="last_name" name="last_name">
-        <label for="phone">Phone number</label>
-        <input type="text" id="phone" name="phone" placeholder="555-123-4567">
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address">
-        <label for="email">Email Address</label>
-        <input type="text" id="email" name="email">
+      <label for="first_name">First name</label>
+      <input type="text" id="first_name" name="first_name" required placeholder="Alex">
+
+      <label for="last_name">Last name</label>
+      <input type="text" id="last_name" name="last_name" required placeholder="Briggs">
+
+      <label for="phone">Phone number</label>
+      <input type="text" id="phone" name="phone" placeholder="555-123-4567" required>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" required placeholder="123 Street Street">
+
+      <label for="email">Email Address</label>
+      <input type="text" id="email" name="email" required placeholder="For your online reciept">
     </fieldset>
 
     <!-- Order Details -->
@@ -39,7 +43,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Chaos Croissant</th> 
+            <th scope="row">Chaos Croissant</th>
             <td>
               <label for="chaos_croissant" class="visually-hidden">Chaos Croissant quantity</label>
               <input type="text" id="chaos_croissant" name="items[chaos_croissant]" min="0" max="24" value="0">
@@ -58,8 +62,7 @@
             <th scope="row">Existential Éclair</th>
             <td>
               <label for="existential_eclair" class="visually-hidden">Existential Éclair quantity</label>
-              <input type="text" id="existential_eclair" name="items[existential_eclair]" min="0" max="24"
-                value="0">
+              <input type="text" id="existential_eclair" name="items[existential_eclair]" min="0" max="24" value="0">
             </td>
           </tr>
 
@@ -76,8 +79,7 @@
             <th scope="row">Finals Week Brownie</th>
             <td>
               <label for="finals_week_brownie" class="visually-hidden">Finals Week Brownie quantity</label>
-              <input type="text" id="finals_week_brownie" name="items[finals_week_brownie]" min="0" max="24"
-                value="0">
+              <input type="text" id="finals_week_brownie" name="items[finals_week_brownie]" min="0" max="24" value="0">
             </td>
           </tr>
 
