@@ -136,11 +136,19 @@ if (count($itemsOrdered) === 0) {
     <p><strong>Address:</strong> <?= $address ?></p>
 
     <h3>Items Ordered</h3>
-    <ul>
-      <?php foreach ($items as $item => $quantity): ?>
-        <li><?= $item ?> — <?= $quantity ?></li>
+
+    <table border="1" cellpadding="10">
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+      </tr>
+      <?php foreach ($itemsOrdered as $item => $quantity): ?>
+        <tr>
+          <td><?= htmlspecialchars($item) ?></td>
+          <td><?= htmlspecialchars($quantity) ?></td>
+        </tr>
       <?php endforeach; ?>
-    </ul>
+    </table>
 
     <h3>Additional Comments</h3>
     <p><?= $comments === "" ? "(none)" : $comments ?></p>
