@@ -24,7 +24,6 @@
     </fieldset>
 
     <!-- Order Details -->
-
     <fieldset class="detai">
       <legend>Order Details</legend>
 
