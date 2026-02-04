@@ -18,5 +18,5 @@
 <header>
     <img src="img/gob.png" class="logo">
     <h1 class="embossed"> TrollPost </h1>
-    <input type="text" id="SearchBar" placeholder="Query?" class="form-control">
+    <input type="text" id="SearchBar" placeholder="Scry?" class="form-control">
 </header>

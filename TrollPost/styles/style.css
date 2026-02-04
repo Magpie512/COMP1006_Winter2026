@@ -1,3 +1,10 @@
+:root{
+    --header-bg:#d6c568; /* Light gold */
+    --header-border:#c4a915; /* Dark gold */
+    --container-bg:#ebdeb4; /* Parchment */
+    --headings: #423613; /* Dark brown */
+}
+
 *,
 *::before,
 *::after {
@@ -9,14 +16,14 @@ header {
     align-items: center;
     gap: 1vw;
     padding: 0 0.5vw 0;
-    background-color: #d6c568;
-    border-bottom: 4px ridge #c4a915;
+    background-color: var(--header-bg);
+    border-bottom: 4px ridge var(--header-border);
 }
 
 header > h1 {
     font-family: "Cinzel", serif;
     font-size: 3vw;
-    color: #7d6727;
+    color: var(--headings);
     margin: 0;
 }
 
@@ -29,14 +36,6 @@ header > #SearchBar {
     max-width: 20vw;
 }
 
-main > h1 {
-    font-family: "Cinzel", serif;
-    font-size: 4vw;
-    color: #4b3f1f;
-    text-align: center;
-    margin-top: 2vw;
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -44,37 +43,76 @@ body {
     background-image: url("../img/map.png");
 }
 
+main {
+    columns: 3;
+}
 
+main > h1 {
+    font-family: "Cinzel", serif;
+    font-size: 4vw;
+    color: var(--headings);
+    text-align: center;
+    margin-top: 2vw;
+}
+
+#HOTWContainer {
+    margin: 2vw;
+    padding:1vw;
+    display: inline-block;
+    background-color: var(--container-bg);
+    border-radius: 5px;
+    border: 2px ridge var(--header-border);
+}
+
+#HOTWContainer h2 {
+    font-family: "Cinzel", serif;
+    color: var(--headings);
+    margin: 0;
+    text-align: center;
+}
+
+.HeroCard{
+    margin: 1vw 0;
+    padding: 1vw;
+    background-color: var(--container-bg);
+    border-radius: 5px;
+    border: 1px solid var(--header-border);
+}
+
+#HOTWContainer > h2 {
+    color: var(--headings);
+    margin: 0;
+}
+
+#PostsContainer {
+    background-color: var(--container-bg);
+    align-items: center;
+    gap: 2vw;
+    padding: 2vw 0;
+    margin: 2vw;
+    border-radius: 5px;
+    border: 2px ridge var(--header-border);
+    width: auto;
+    
+}
 
 footer {
     margin-top: auto;
     text-align: center;
-    background-color: #d6c568;
-    border-top: 4px ridge #c4a915;
+    background-color: var(--header-bg);
+    border-top: 4px ridge var(--header-border);
     font-family: "Cinzel", serif;
-    color: #7d6727;
+    color: var(--headings);
     font-size: .8em;
-    line-height: 0;
+    padding: 1vw 0 0 0; /* Padding for snug appearance */
+    line-height: 0; /* Adjusted line height for less space between lines */
 }
 
 abbr{
     text-decoration: none;
-    border-bottom: 1px dotted #7d6727;
+    border-bottom: 1px dotted var(--headings);
     cursor: help;
 }
-
-/* HOTW */
-#hotw {
-    display: block;
-    width: 80%;
-    margin: 2vw auto;
-    padding: 1vw;
-    border: 2px solid #7d6727;
-    background-color: rgba(214, 197, 104, 0.8);
-    font-family: "Cinzel", serif;
-    color: #4b3f1f;
-}
-
 
 /* Funky Effects */
 .embossed {
