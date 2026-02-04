@@ -1,0 +1,97 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    padding: 0 0.5vw 0;
+    background-color: #d6c568;
+    border-bottom: 4px ridge #c4a915;
+}
+
+header > h1 {
+    font-family: "Cinzel", serif;
+    font-size: 3vw;
+    color: #7d6727;
+    margin: 0;
+}
+
+header > img {
+    max-width: 4vw;
+}
+
+header > #SearchBar {
+    margin-left: auto;
+    max-width: 20vw;
+}
+
+main > h1 {
+    font-family: "Cinzel", serif;
+    font-size: 4vw;
+    color: #4b3f1f;
+    text-align: center;
+    margin-top: 2vw;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("../img/map.png");
+}
+
+
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    background-color: #d6c568;
+    border-top: 4px ridge #c4a915;
+    font-family: "Cinzel", serif;
+    color: #7d6727;
+    font-size: .8em;
+    line-height: 0;
+}
+
+abbr{
+    text-decoration: none;
+    border-bottom: 1px dotted #7d6727;
+    cursor: help;
+}
+
+/* HOTW */
+#hotw {
+    display: block;
+    width: 80%;
+    margin: 2vw auto;
+    padding: 1vw;
+    border: 2px solid #7d6727;
+    background-color: rgba(214, 197, 104, 0.8);
+    font-family: "Cinzel", serif;
+    color: #4b3f1f;
+}
+
+
+/* Funky Effects */
+.embossed {
+    text-shadow:
+        1px 1px 2px #2c2727,
+        /* highlight (top-left) */
+        -1px -1px 2px #908585;
+    /* shadow (bottom-right) */
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    header > h1 {
+        font-size: 6vw;
+    }
+
+    header > img {
+        max-width: 8vw;
+    }
+}
