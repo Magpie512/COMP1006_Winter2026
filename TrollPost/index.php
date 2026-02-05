@@ -1,7 +1,7 @@
 <?php require 'includes/header.php'; ?>
 
-<main>
-    <section id="HOTWContainer">
+<main class="layout">
+    <section id="HOTWContainer" class="leftSide">
         <h2> <abbr title="Heroes of the Week">H.O.T.W</abbr> </h2> 
         <div id="Hero1" class="HeroCard">
             <h3> Hero 1 </h3>
@@ -9,7 +9,7 @@
         </div>
         <div id="Hero2" class="HeroCard">
             <h3> Hero 2 </h3>
-        <p> Description of Hero 2 </p>
+            <p> Description of Hero 2 </p>
         </div>
         <div id="Hero3" class="HeroCard">
             <h3> Hero 3 </h3>
@@ -17,7 +17,7 @@
         </div>
     </section>
     
-    <section id="PostsContainer">
+    <section id="PostsContainer" class="body">
         <button id="CreatePost"> Create Post </button>
         <form action="process.php" method="post" id="PostForm">
             <label for="PostContent"> Your Post: </label>
@@ -30,11 +30,11 @@
 
     </section>
 
-    <aside id="TrendingCointainer">
+    <aside id="TrendingContainer" class="rightSide">
         <h3>Trending</h3>
     </aside>
 
-    <aside id="AdverContainer">
+    <aside id="AdverContainer" class="rightSide">
         <h3>Advertisements</h3> <!-- Joke advert for the gnome emporium -->
     </aside>
 </main> 
