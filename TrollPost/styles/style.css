@@ -1,8 +1,11 @@
-::root{
+:root{
     --header-bg:#d6c568; /* Light gold */
     --header-border:#c4a915; /* Dark gold */
     --container-bg:#ebdeb4; /* Parchment */
     --headings: #423613; /* Dark brown */
+}
+*,*::before,*::after{
+    box-sizing: border-box; 
 }
 
 .layout {
@@ -32,3 +35,42 @@
     /* shadows (bottom-right) */
 }
  
+/* Header */
+header {
+    background-color: var(--header-bg);
+    border-bottom: 4px ridge var(--header-border);  
+    font-family: 'Cinzel', serif;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+header > h1 {
+    display: inline-block;
+    color: var(--headings); 
+    font-size: 3rem;
+    vertical-align: middle;
+}
+
+header > #signin, header > #signup {
+  margin-right: auto;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+header > #signin:hover, header > #signup:hover {
+    background-color: var(--header-border);
+    border-color: var(--header-bg);
+    color: var(--headings);
+}
+
+header > #searchBar {
+    width: 300px;
+    margin-right:10px;
+    margin-left: auto;
+}
