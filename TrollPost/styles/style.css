@@ -58,9 +58,7 @@ header > h1 {
 }
 
 header > #signin, header > #signup {
-  margin-right: auto;
   margin-right: 10px;
-  margin-left: 10px;
 }
 
 header > #signin:hover, header > #signup:hover {
@@ -74,3 +72,21 @@ header > #searchBar {
     margin-right:10px;
     margin-left: auto;
 }
+
+/* Body */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--container-bg);
+    background-image: url('../img/map.png');
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+/
