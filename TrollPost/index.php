@@ -34,7 +34,7 @@
         <h3>Trending</h3>
     </aside>
 
-    <aside id="AdverContainer" class="rightSide">
+    <aside id="AdvertContainer" class="rightSide">
         <h3>Advertisements</h3> <!-- Joke advert for the gnome emporium -->
     </aside>
 </main> 

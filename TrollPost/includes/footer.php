@@ -1,6 +1,6 @@
 <footer>
-    <p> &copy; 2026 Troll Post </p>
-    <p> Created by <abbr title="The Evokers Department of The Aethermancy Guild">TEDTAG</abbr></p>
+    <p>&copy; 136AC Troll Post </p>
+    <p>The Guild of Aetheric Transport</p>
     <p>Really made by Mara Briggs</p>
 </footer>
 </body>
