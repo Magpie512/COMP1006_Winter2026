@@ -89,4 +89,31 @@ body::before {
     z-index: -1;
 }
 
-/
+/* Hero of the week */
+
+#HOTWContainer {
+    background-color: var(--container-bg);
+    border: 2px solid var(--header-border);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--header-bg);
+    border-top: 4px ridge var(--header-border);
+    text-align: center;
+    padding: 10px 0 0 0;
+    line-height: 2px;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;  
+}
+
+footer p:nth-child(3) {
+  font-size: 0.8em;
+}
