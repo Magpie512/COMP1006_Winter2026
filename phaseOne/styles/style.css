@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 :root{
     --header-bg:#d6c568; /* Light gold */
     --header-border:#c4a915; /* Dark gold */
     --container-bg:#ebdeb4; /* Parchment */
     --headings: #423613; /* Dark brown */
 }
+
 *,*::before,*::after{
     box-sizing: border-box; 
 }
@@ -12,21 +15,25 @@
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid:
-    "header header header" auto
-    "leftSide body rightSide" 1fr
-    "leftSide body rightSideAlt" auto
-    "footer footer footer" auto
-    / auto 1fr auto;
+    grid:
+        "header header header" auto
+        "leftSide body rightSide" 1fr
+        "leftSide body rightSideAlt" auto
+        "footer footer footer" auto
+        / auto 1fr auto;
   gap: 8px;
 }
 
 .header { grid-area: header; }
 .leftSide { grid-area: leftSide; }
 .body { grid-area: body; }
-.rightSide { grid-area: rightSide; }
-.rightSideAlt { grid-area: rightSideAlt; }
+.rightSide {grid-area: rightSide; }
+.rightSideAlt {grid-area: rightSideAlt; }
 .footer { grid-area: footer; }
+
+#FeedContainer { grid-area: body; }
+#TrendingContainer { grid-area: rightSide; }
+#AdvertContainer { grid-area: rightSideAlt; }
 
 /* Funky Effects */
 .embossed {
@@ -77,19 +84,19 @@ header > #searchBar {
 }
 
 /* Body */
-body::before {
-    content: '';
-    position: absolute;
+body ::before {
+    content: "";
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--container-bg);
+    width: 100%;
+    height: 100%;
     background-image: url('../img/map.png');
-    background-size: cover;
     background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     filter: blur(5px);
-    z-index: -1;
+    z-index: -1; /* Ensure it stays behind all content */
 }
 
 /* Hero of the week */
@@ -111,7 +118,36 @@ body::before {
 
 /* Posts */
 
-#PostsContainer {
+#CreatePostsContainer {
+    background-color: var(--container-bg);
+    border: 2px solid var(--header-border);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+}
+
+#CreatePostsContainer label {
+    color: var(--headings);
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#CreatePostsContainer input, #CreatePostsContainer textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--header-border);
+    border-radius: 4px;
+}
+
+#CreatePostsContainer textarea {
+    resize: none;
+}
+
+/* Feed */
+
+#FeedContainer {
     background-color: var(--container-bg);
     border: 2px solid var(--header-border);
     border-radius: 5px;
@@ -129,7 +165,7 @@ body::before {
     margin: 20px;
 }
 
-/*Advert */
+/* Advert */
 
 #AdvertContainer {
     background-color: var(--container-bg);
@@ -156,3 +192,5 @@ footer p {
 footer p:nth-child(3) {
   font-size: 70%;
 }
+
+/* Sign-up/Login */
