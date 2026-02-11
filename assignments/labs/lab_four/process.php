@@ -1,8 +1,9 @@
 <?php
 require "includes/header.php";
 //  TODO: connect to the database 
-
+require "includes/connect.php";
 //   TODO: Grab form data (no validation or sanitization for this lab)
+
 
 /*
   1. Write an INSERT statement with named placeholders

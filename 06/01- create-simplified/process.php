@@ -13,8 +13,7 @@ $phone     = filter_input(
     'phone',
     FILTER_SANITIZE_SPECIAL_CHARS
 );
-$comments = filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_SPECIAL_CHARS);
-$items = $_POST['items'] ?? [];
+$comments = filter_input(INPUT_POST, 'comments', FILTER_SANITIZE_SPECIAL_CHARS);    
 
 //STEP TWO - validation time - serverside 
 
@@ -63,17 +62,24 @@ if (!empty($errors)) {
 /* INSERT THE ORDER USING A PREPARED STATEMENT*/
 
 //set up the query used named placeholders
+$sql = "INSERT INTO orders (first_name, last_name, email, phone, address, comments) VALUES (:first_name, :last_name, :email, :phone, :address, :comments)";
 
 //prepare the query 
-
+$stmt = $pdo->prepare($sql);
 
 //bind parameters
-
+$stmt->bindParam(':first_name', $firstName);
+$stmt->bindParam(':last_name', $lastName);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':phone', $phone);
+$stmt->bindParam(':address', $address);
+$stmt->bindParam(':comments', $comments);
 
 //execute the query, matching the placeholder with the data entered by user
-
+$stmt->execute();
 
 //close connection 
+$pdo
 
 ?>
 

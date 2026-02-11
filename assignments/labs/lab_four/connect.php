@@ -5,7 +5,7 @@ $user = "root"; //username
 $password = ""; //password
 
 //points to the database
-$dsn = "mysql:host=$host;port=3307;dbname=$db";
+$dsn = "mysql:host=$host;dbname=$db";
 
 //try to connect, if connected echo a yay!
 try {

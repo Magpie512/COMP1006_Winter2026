@@ -7,9 +7,9 @@
     <!-- Step One - Add Client Side Validation with HTML Attributes -->
     <fieldset>
       <legend>Customer Information</legend>
-      <label for="first_name" class="form-label">First name</label>
+      <label for="first_name" class="form-label" placeholder="Bobby">First name</label>
       <input type="text" id="first_name" name="first_name" class="form-control">
-      <label for="last_name" class="form-label">Last name</label>
+      <label for="last_name" class="form-label" placeholer="Pinn">Last name</label>
       <input type="text" id="last_name" name="last_name" class="form-control">
       <label for="phone" class="form-label">Phone number</label>
       <input type="tel" id="phone" name="phone" placeholder="555-123-4567" class="form-control">
