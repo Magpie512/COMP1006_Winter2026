@@ -40,12 +40,12 @@ $stmt->execute([
         <!-- TODO: Display a confirmation message -->
         <!-- Example: "Thanks, Name! You have been added to our mailing list." -->
         <p>
-            Thanks, <?php echo htmlspecialchars($name); ?>!
+            Thanks, <?php echo htmlspecialchars($first . " " . $last); ?>!
             You have been added to our mailing list.
         </p>
 
-        <p class="mt-3">
-            <a href="subscribers.php">View Subscribers</a>
+            <p class="mt-3">
+                <a href="subscribers.php">View Subscribers</a>
         </p>
     </main>
 </body>
