@@ -42,8 +42,8 @@ include 'includes/header.php';
             </div>
             <p>Content of Post 1</p>
             <div class="post-footer">
-                <button class="btn-interaction">👍 Like</button>
-                <button class="btn-interaction">💬 Reply</button>
+                <button class="btn-interaction">Like</button>
+                <button class="btn-interaction">Reply</button>
             </div>
         </div>
         <div class="PostCard">
@@ -53,8 +53,8 @@ include 'includes/header.php';
             </div>
             <p>Content of Post 2</p>
             <div class="post-footer">
-                <button class="btn-interaction">👍 Like</button>
-                <button class="btn-interaction">💬 Reply</button>
+                <button class="btn-interaction">Like</button>
+                <button class="btn-interaction">Reply</button>
             </div>
         </div>
         <div class="PostCard">
@@ -64,8 +64,8 @@ include 'includes/header.php';
             </div>
             <p>Content of Post 3</p>
             <div class="post-footer">
-                <button class="btn-interaction">👍 Like</button>
-                <button class="btn-interaction">💬 Reply</button>
+                <button class="btn-interaction">Like</button>
+                <button class="btn-interaction">Reply</button>
             </div>
         </div>
     </div>
