@@ -27,8 +27,9 @@ require_once 'includes/connect.php'; #connects to the database
 <section class="body">
     <div id="CreatePostsContainer">
         <form action="process.php" method="post" id="PostForm">
+            <input type="hidden" name="action" value="create">
             <label for="PostContent"> Your Post: </label>
-            <textarea id="PostContent" name="PostContent" rows="4" cols="50" maxlength="500"
+            <textarea id="PostContent" name="content" rows="4" cols="50" maxlength="500"
                 placeholder="Write your troll post here..."></textarea>
             <input type="submit" value="Submit Post">
         </form>
@@ -36,18 +37,29 @@ require_once 'includes/connect.php'; #connects to the database
 
     <div id="FeedContainer">
         <h2>Recent Posts</h2>
-        <div class="PostCard">
-            <div class="post-header">
-                <h3>Post Title 1</h3>
-                <span class="post-meta">2 hours ago</span>
+        <?php
+        // We reach into the database and pull the most recent chronicles
+        $stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC");
+        while ($post = $stmt->fetch()): 
+        ?>
+            <div class="PostCard">
+                <div class="post-header">
+                    <h3>Post #<?php echo $post['id']; ?></h3>
+                    <span class="post-meta"><?php echo $post['created_at']; ?></span>
+                </div>
+                <p><?php echo htmlspecialchars($post['content']); ?></p>
+                
+                <div class="post-footer">
+                    <form action="process.php" method="POST" style="display:inline;">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+                        <button type="submit" class="btn-interaction" onclick="return confirm('Erase this post from history?')">Delete</button>
+                    </form>
+                    
+                    <button class="btn-interaction">Edit</button>
+                </div>
             </div>
-            <p>Content of Post 1</p>
-            <div class="post-footer">
-                <button class="btn-interaction">Like</button>
-                <button class="btn-interaction">Edit</button>
-                <button class="btn-interaction">Delete</button>
-            </div>
-        </div>
+        <?php endwhile; ?>
     </div>
 </section>
 
