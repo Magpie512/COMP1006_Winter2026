@@ -1,5 +1,6 @@
 <?php
 require_once 'includes/header.php'; #holy load issue brother
+require_once 'includes/connect.php'; #connects to the database
 ?>
 <input type="text" id="searchBar" placeholder="Scry?" class="form-control">
 <button id="signin" class="btn btn-primary" onclick="window.location.href='pages/Signin.php'"> Sign In </button>
@@ -43,29 +44,8 @@ require_once 'includes/header.php'; #holy load issue brother
             <p>Content of Post 1</p>
             <div class="post-footer">
                 <button class="btn-interaction">Like</button>
-                <button class="btn-interaction">Reply</button>
-            </div>
-        </div>
-        <div class="PostCard">
-            <div class="post-header">
-                <h3>Post Title 2</h3>
-                <span class="post-meta">4 hours ago</span>
-            </div>
-            <p>Content of Post 2</p>
-            <div class="post-footer">
-                <button class="btn-interaction">Like</button>
-                <button class="btn-interaction">Reply</button>
-            </div>
-        </div>
-        <div class="PostCard">
-            <div class="post-header">
-                <h3>Post Title 3</h3>
-                <span class="post-meta">6 hours ago</span>
-            </div>
-            <p>Content of Post 3</p>
-            <div class="post-footer">
-                <button class="btn-interaction">Like</button>
-                <button class="btn-interaction">Reply</button>
+                <button class="btn-interaction">Edit</button>
+                <button class="btn-interaction">Delete</button>
             </div>
         </div>
     </div>
