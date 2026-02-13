@@ -1,3 +1,4 @@
+<!-- I do wanna state I did get this template from freefrontend.com and will be modifying it to fit the theme of the site, but I will give credit where credit is due -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,17 +72,5 @@
 	</div>
 </div>
 </div>
-<script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-    });
-</script>
+<script src="../js/SL.js"></script>
 <?php require '../includes/footer.php'; ?>

@@ -15,9 +15,3 @@
     <link rel="stylesheet" href="styles/style.css?v=1.5"> <!-- Cache-busting query parameter -->
     <link rel="stylesheet" href="../styles/style.css?v=1.5"> <!-- XXAMP Param -->
 </head>
-
-<body>
-<main class="layout">
-<header class="header"> <!-- I did use AI right here I will admit -->
-    <img src="img/gob.png" onerror="this.src='../img/gob.png'; this.onerror='this.src=&#34;../../img/gob.png&#34;; this.onerror=null;'" class="logo" alt="TrollPost Logo">
-    <h1 class="embossed"> TrollPost </h1>
