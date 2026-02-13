@@ -38,14 +38,13 @@ require_once 'includes/connect.php'; #connects to the database
     <div id="FeedContainer">
         <h2>Recent Posts</h2>
         <?php
-        // We reach into the database and pull the most recent chronicles
         $stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC");
         while ($post = $stmt->fetch()):
             ?>
             <div class="PostCard" id="post-<?php echo $post['id']; ?>">
                 <div class="post-header">
                     <h3>Post #<?php echo $post['id']; ?></h3>
-                    <span class="post-meta"><?php echo $post['created_at']; ?></span>
+                    <span class="post-meta"><?php echo $post['created_at']; ?></sp      an>
                 </div>
 
                 <div id="display-<?php echo $post['id']; ?>">
@@ -73,6 +72,8 @@ require_once 'includes/connect.php'; #connects to the database
 <aside id="AdvertContainer" class="rightSideAlt">
     <h3>Advertisements</h3> <!-- Joke advert for the gnome emporium -->
 </aside>
+
+<script src="js/postmod.js"></script> <!-- benny called me silly :( for forgetting this -->
 
 <?php
 require_once 'includes/footer.php';
