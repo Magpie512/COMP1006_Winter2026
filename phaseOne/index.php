@@ -40,23 +40,26 @@ require_once 'includes/connect.php'; #connects to the database
         <?php
         // We reach into the database and pull the most recent chronicles
         $stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC");
-        while ($post = $stmt->fetch()): 
-        ?>
-            <div class="PostCard">
+        while ($post = $stmt->fetch()):
+            ?>
+            <div class="PostCard" id="post-<?php echo $post['id']; ?>">
                 <div class="post-header">
                     <h3>Post #<?php echo $post['id']; ?></h3>
                     <span class="post-meta"><?php echo $post['created_at']; ?></span>
                 </div>
-                <p><?php echo htmlspecialchars($post['content']); ?></p>
-                
+
+                <div id="display-<?php echo $post['id']; ?>">
+                    <p class="content-text"><?php echo htmlspecialchars($post['content']); ?></p>
+                </div>
+
                 <div class="post-footer">
+                    <button class="btn-interaction" onclick="toggleEdit(<?php echo $post['id']; ?>)">Edit</button>
+
                     <form action="process.php" method="POST" style="display:inline;">
                         <input type="hidden" name="action" value="delete">
                         <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
-                        <button type="submit" class="btn-interaction" onclick="return confirm('Erase this post from history?')">Delete</button>
+                        <button type="submit" class="btn-interaction">Delete</button>
                     </form>
-                    
-                    <button class="btn-interaction">Edit</button>
                 </div>
             </div>
         <?php endwhile; ?>
