@@ -1,76 +1,17 @@
-# COMP1006_Winter2026
-Code repository for COMP1006 - Intro to Web Programming with PHP - Winter 2026 
+# Technical Architecture Review: TrollPost Prototype
+Made from the intersection of a love of tabletop gaming and digital storytelling, Trollpost completes the required marks for the project at hand but also requires a rigorous architectural reassessment to move beyond its current limitations. The following analysis outlines the structural integrity of the system and the necessary evolution of its codebase.
 
-Welcome to the **COMP1006 GitHub Repository**!
-This repo is your central hub for: 
+## The Foundation of the System
+The current codebase implements a rigid PHP pattern where the execution lifecycle begins with a synchronous chain of dependencies. When the environment initializes, it calls upon the header and connection scripts in a fixed sequence. This design creates an unfortunate bottleneck. The system waits for the database handshake to complete before proceeding, the time to first byte suffers. The server essentially stands idle while the network establishes a connection, preventing any part of the document from streaming to the user.
+In the front-end layer, the user interface utilizes a grid-based structure rooted in HTML5 and Bootstrap. The layout effectively separates the primary content feed from supplemental metadata, such as the trending modules. Input handling for searching and posting follows standard protocols, with client-side constraints mirroring the database schema to ensure data integrity before a request even reaches the server.
 
-* 🧪 **Lab sample files**
-* 📂 **Assignment sample files**
-* 💻 **Weekly code examples**
+## Data Persistence and Security
+The system employs PHP Data Objects for its database interactions, which provides a level of defense against injection attacks through the use of prepared statements. On the view layer, the implementation of standard output encoding mitigates the risk of cross-site scripting. However, a critical flaw exists in how the system handles memory.
+The current logic performs an unbuffered selection of all records in the database. While this functions during the prototype phase, it presents a scaling problem. As the number of posts grows, the memory required to hold the dataset increases at an identical rate. Eventually, this will exhaust the server’s allocated memory, leading to a complete system failure.
+Analysis of Performance Bottlenecks
+Two primary inefficiencies drive the noticed load issues. First, the dependency on a blocking connection script forces the entire rendering pipeline to stall if the database experiences even minor latency. Secondly, the lack of data segmentation means the server attempts to process the entire history of the application for every single page load. 
 
----
-
-## 🚀 How to Use This Repo
-
-### 1. Fork the Repository
-
-* Click the **Fork** button at the top-right of this page.
-* This creates **your own copy** of the COMP1002 repo under your GitHub account.
-
-### 2. Clone Your Fork
-
-* Copy the URL of **your fork** (not the instructor’s).
-* In GitHub Desktop, go to:
-  `File → Clone Repository → paste your fork URL`.
-* Now you have a local copy to work with on your computer.
-
-### 3. Do Your Work
-
-* Add/edit lab files, assignments, or weekly examples as needed.
-* Preview your changes in the browser and test before committing.
-
-### 4. Commit and Push
-
-* Use **GitHub Desktop** or the command line to commit your changes.
-* Push them back to **your fork** on GitHub.
-
----
-
-## 🔄 Syncing Your Fork (Stay Up to Date)
-
-When the instructor updates the original repo, your fork won’t automatically update. Here’s how to stay in sync:
-
-### 🌐 Option A: Sync on GitHub Website (easiest)
-
-1. Go to **your fork** on GitHub.
-2. If you see a banner saying:
-
-   > “This branch is X commits behind `<InstructorRepo>`”
-   > Click **Sync fork → Update branch**.
-3. Done! Your fork now has the latest updates.
-
-### 🖥️ Option B: Sync with GitHub Desktop
-
-1. In **GitHub Desktop**, open your fork.
-2. Go to **Repository → Repository Settings… → Remotes**.
-3. Add a new remote called `upstream` with the instructor’s repo URL.
-4. To update:
-
-   * **Fetch upstream** (from the menu).
-   * **Merge upstream/main** into your branch.
-   * **Push origin** to update your fork on GitHub.
-
----
-
-## 📝 Notes
-
-* Always fork this repo instead of cloning directly from the instructor.
-* Use your fork for labs, assignments, and experiments.
-* Remember to sync your fork regularly so you have the latest examples and resources.
-
----
-
-## 👩‍🏫 Instructor
-
-Course: **COMP1006 – Intro to Web Programming with PHP **
-Instructor: * Jess Gilfillan *
+## A Path Toward Scalability
+The first priority for a potential development roadmap involves the implementation of pagination, more page division. By transitioning to this capped fetch system, the memory footprint remains constant regardless of the total number of records. This must be paired with database indexing on the creation timestamps to ensure that sorting operations do not become a secondary bottleneck.
+The second phase of optimization focuses on state management. The current reliance on standard form submissions for editing or deleting content should be replaced with asynchronous requests. This shift eliminates the need for full page reloads and provides a more seamless experience for the user. Additionally, the introduction of a confirmation layer for destructive actions will protect the integrity of the data.
+The final stage of the transition involves addressing the connection overhead. By exploring persistent connections or pooling, the system can bypass the expensive handshake process on every request, ensuring that the TrollPost architecture can support the weight of its expanding world.
