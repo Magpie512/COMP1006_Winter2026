@@ -1,14 +1,11 @@
 <?php
-require_once 'includes/header.php';
-require_once '/includes/connect.php';
-
-$stmt = $pdo->query("SELECT id, message, created_at FROM blog_posts ORDER BY created_at DESC LIMIT 20");
-$posts = $stmt->fetchAll();
+require_once 'includes/header.php'; #holy load issue brother
 ?>
 <input type="text" id="searchBar" placeholder="Scry?" class="form-control">
 <button id="signin" class="btn btn-primary" onclick="window.location.href='pages/Signin.php'"> Sign In </button>
 <button id="signup" class="btn btn-secondary" onclick="window.location.href='pages/Signup.php'"> Sign Up </button>
 </header>
+
 
 <section id="HOTWContainer" class="leftSide">
     <h2> <abbr title="Heroes of the Week">H.O.T.W</abbr> </h2>
@@ -38,34 +35,39 @@ $posts = $stmt->fetchAll();
 
     <div id="FeedContainer">
         <h2>Recent Posts</h2>
-
-        <?php if (isset($_GET['status']) && $_GET['status'] === 'posted'): ?>
-            <p class="text-success">Post submitted.</p>
-        <?php elseif (isset($_GET['status']) && $_GET['status'] === 'empty'): ?>
-            <p class="text-danger">Post cannot be empty.</p>
-        <?php elseif (isset($_GET['status']) && $_GET['status'] === 'toolong'): ?>
-            <p class="text-danger">Post is too long (max 500 chars).</p>
-        <?php endif; ?>
-
-        <?php if (empty($posts)): ?>
-            <div class="PostCard">
-                <p>No posts yet. Be the first to post.</p>
+        <div class="PostCard">
+            <div class="post-header">
+                <h3>Post Title 1</h3>
+                <span class="post-meta">2 hours ago</span>
             </div>
-        <?php else: ?>
-            <?php foreach ($posts as $post): ?>
-                <div class="PostCard">
-                    <div class="post-header">
-                        <h3>Post #<?= (int)$post['id'] ?></h3>
-                        <span class="post-meta"><?= htmlspecialchars($post['created_at']) ?></span>
-                    </div>
-                    <p><?= nl2br(htmlspecialchars($post['message'])) ?></p>
-                    <div class="post-footer">
-                        <button class="btn-interaction" type="button">Like</button>
-                        <button class="btn-interaction" type="button">Reply</button>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
+            <p>Content of Post 1</p>
+            <div class="post-footer">
+                <button class="btn-interaction">Like</button>
+                <button class="btn-interaction">Reply</button>
+            </div>
+        </div>
+        <div class="PostCard">
+            <div class="post-header">
+                <h3>Post Title 2</h3>
+                <span class="post-meta">4 hours ago</span>
+            </div>
+            <p>Content of Post 2</p>
+            <div class="post-footer">
+                <button class="btn-interaction">Like</button>
+                <button class="btn-interaction">Reply</button>
+            </div>
+        </div>
+        <div class="PostCard">
+            <div class="post-header">
+                <h3>Post Title 3</h3>
+                <span class="post-meta">6 hours ago</span>
+            </div>
+            <p>Content of Post 3</p>
+            <div class="post-footer">
+                <button class="btn-interaction">Like</button>
+                <button class="btn-interaction">Reply</button>
+            </div>
+        </div>
     </div>
 </section>
 

@@ -1,6 +1,6 @@
-<?php
+<?php   
 $host = "localhost"; //hostname
-$db = "TrollPost"; //database name
+$db = "TrollPost"; //database name  
 $user = "root"; //username
 $password = ""; //password
 
