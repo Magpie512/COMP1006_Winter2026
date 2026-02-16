@@ -35,31 +35,33 @@ require_once 'includes/header.php'; #holy load issue brother
             <div id="FeedContainer">
                 <h2>Recent Posts</h2>
                 <?php
-                $stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC"); // Fetch all posts ordered by creation time, newest first
-                while ($post = $stmt->fetch()): // Loop through each post and display it
-                    ?>
-                    <div class="PostCard" id="post-<?php echo $post['id']; ?>">
-                        <!-- Each post card has a unique ID based on the post ID for easy JavaScript manipulation -->
-                        <div class="post-header">
-                            <!--<h3>Post <?php //echo $post['id']; ?></h3>-->
-                            <!-- Optionally display the post ID as a header -->
-                            <span class="post-meta"><?php echo $post['created_at']; ?></span>
-                        </div>
-
-                        <div id="display-<?php echo $post['id']; ?>">
-                            <p class="content-text"><?php echo htmlspecialchars($post['content']); ?></p>
-                        </div>
-
-                        <div class="post-footer">
-                            <button class="btn-interaction" onclick="toggleEdit(<?php echo $post['id']; ?>)">Edit</button>
-
-                            <form action="process.php" method="POST" style="display:inline;">
-                                <input type="hidden" name="action" value="delete">
-                                <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
-                                <button type="submit" class="btn-interaction">Delete</button>
-                            </form>
-                        </div>
+                $limit = 20;
+                $stmt = $pdo->prepare("SELECT id, content, created_at FROM posts ORDER BY created_at DESC LIMIT :limit");
+                $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+                $stmt->execute();
+                while ($post = $stmt->fetch()):
+                ?>
+                <div class="PostCard" id="post-<?php echo $post['id']; ?>">
+                    <!-- Each post card has a unique ID based on the post ID for easy JavaScript manipulation -->
+                    <div class="post-header">
+                        <!-- Optionally display the post ID as a header -->
+                        <span class="post-meta"><?php echo $post['created_at']; ?></span>
                     </div>
+
+                    <div id="display-<?php echo $post['id']; ?>">
+                        <p class="content-text"><?php echo htmlspecialchars($post['content']); ?></p>
+                    </div>
+
+                    <div class="post-footer">
+                        <button class="btn-interaction" onclick="toggleEdit(<?php echo $post['id']; ?>)">Edit</button>
+
+                        <form action="process.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+                            <button type="submit" class="btn-interaction">Delete</button>
+                        </form>
+                    </div>
+                </div>
                 <?php endwhile; ?>
             </div>
         </section>
@@ -69,6 +71,6 @@ require_once 'includes/header.php'; #holy load issue brother
 
         <?php include 'includes/advert.php'; ?>
 
-        <script src="js/postmod.js"></script> <!-- benny called me silly :( for forgetting this -->
+        <script src="js/postmod.js" defer></script> <!-- MORE EFFICIENT GET PWNED -->
 
         <?php require_once 'includes/footer.php'; ?>

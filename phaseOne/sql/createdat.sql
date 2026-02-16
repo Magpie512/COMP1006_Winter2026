@@ -1,0 +1,1 @@
+ALTER TABLE posts ADD INDEX idx_posts_created_at (created_at);
