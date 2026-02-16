@@ -35,7 +35,7 @@ require_once 'includes/header.php'; #holy load issue brother
             <div id="FeedContainer">
                 <h2>Recent Posts</h2>
                 <?php
-                $limit = 20;
+                $limit = 10; // Number of posts to display
                 $stmt = $pdo->prepare("SELECT id, content, created_at FROM posts ORDER BY created_at DESC LIMIT :limit");
                 $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
                 $stmt->execute();
