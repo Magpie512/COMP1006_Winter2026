@@ -7,7 +7,7 @@ require "includes/header.php";
 $sql = "SELECT * FROM products ORDER BY created_at DESC LIMIT 1";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
-$products = $stmt->fetchAll();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
