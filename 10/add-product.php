@@ -42,6 +42,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Add Code Here 
 
+    // Check if uploaded
+    if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] !== UPLOAD_ERR_NO_FILE) {
+
+        // make sure it uploaded correctly
+        if ($_FILES['product_image']['error'] !== UPLOAD_ERR_OK) {
+            $errors[] = "Image upload failed.";
+        }
+        else {
+            // only allow certain file types
+            $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            //detect the real MIME type of the uploaded file
+            $detectedType = mime_content_type($_FILES['product_image']['tmp_name']);
+            if (!in_array($detectedType, $allowedTypes)) {
+                $errors[] = "Invalid image type.";
+            }
+            else {
+                // get file extension
+                $extension = pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION);
+                $extension = strtolower($extension);
+
+                // generate a unique file name
+                $safeFilename = uniqid('product_', true) . '.' . strtolower($extension);
+
+                // build the server path
+                $destination = __DIR__.'/uploads/'. $safeFilename;
+
+                // move the file to the server
+                if (move_uploaded_file($_FILES['product_image']['tmp_name'], $destination)) {
+                    $imagePath = 'uploads/'. $safeFilename;
+                }
+                else{
+                    $errors[] = "Image upload failed.";
+                }
+            }
+        }
+    }
+
     // If there are no errors, insert the product into the database
     if (empty($errors)) {
         $sql = "INSERT INTO products (name, description, price, image_path)
@@ -122,4 +159,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </main>
 
-<?php require "footer.php"; ?>
+<?php require "includes/footer.php"; ?>

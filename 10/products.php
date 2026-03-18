@@ -4,6 +4,10 @@ require "includes/connect.php";
 require "includes/header.php";
 
 // Get all products, newest first
+$sql = "SELECT * FROM products ORDER BY created_at DESC LIMIT 1";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$products = $stmt->fetchAll();
 
 ?>
 
