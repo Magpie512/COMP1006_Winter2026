@@ -51,7 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         else {
             // only allow certain file types
-            $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+            $allowedTypes = [
+                            'image/jpeg',
+                            'image/jpg',
+                            'image/png',
+                            'image/x-png',
+                            'image/gif'
+                            ];
             //detect the real MIME type of the uploaded file
             $detectedType = mime_content_type($_FILES['product_image']['tmp_name']);
             if (!in_array($detectedType, $allowedTypes)) {
