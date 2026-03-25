@@ -9,6 +9,54 @@
 // 3. decode JSON results returned by the API
 // 4. loop through multiple jokes and display them
 
+// create a var to hold the search term
+$searchTerm = "";
+
+// create an array to hold the results
+$jokes = [];
+
+// create a message to display
+$message = "";
+
+// only run if the form has been submitted
+if (isset($_POST['search_jokes'])) {
+    // trim white space
+    $searchTerm = trim($_POST['search_term']);
+
+    // check if the user entered a search term
+    if ($searchTerm === "") {
+        $message = "Please enter a search term.";
+    } else {
+        // build the API request URL
+        $url = "https://icanhazdadjoke.com/search?term=" . urlencode($searchTerm);
+
+        // send the request
+        $options = [
+            "http" => [
+                "method" => "GET",
+                "header" =>
+                    "Accept: application/json\r\n" .
+                    "User-Agent: COMP1006 Dad Joke Generator (http://localhost)\r\n"
+            ]
+        ];
+
+        $context = stream_context_create($options);
+
+        // send the request
+        $response = file_get_contents($url, false, $context);
+
+        if ($response !== false) {
+            // decode the JSON
+            $data = json_decode($response, true);
+
+            // extract the jokes array properly
+            if (isset($data['results'])) {
+                $jokes = $data['results'];
+            }
+        }
+    }
+}
+
 ?>
  <!--
         This form sends the user's search word back to this same page.
