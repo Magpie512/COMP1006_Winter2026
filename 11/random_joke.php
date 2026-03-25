@@ -41,7 +41,7 @@ if(isset($_POST['get_joke'])) {
 
 
     } else {
-        $joke = "Sorry no dad jokes today.";
+        $joke = "Sorry, no dad jokes today.";
     }
 
 }
