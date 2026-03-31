@@ -63,9 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $destination = __DIR__ . '/uploads/' . $safeFilename;
                 if (move_uploaded_file($_FILES['product_image']['tmp_name'], $destination)) {
                     //save the relative path to the database
-                    $imagePath = 'uploads/' . $safeFilename; 
+                    $imagePath = 'uploads/' . $safeFilename;
                 } else {
-                    $errors[] = "Image uploaded failed!"; 
+                    $errors[] = "Image uploaded failed!";
                 }
             }
         }
@@ -102,45 +102,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     <?php endif; ?>
 
-    <?php if ($success !== ""): ?>
+    <?php if ($success !== "" && $imagePath): ?>
         <div class="alert alert-success">
             <?= htmlspecialchars($success); ?>
+            <br>
+            <img src="<?= htmlspecialchars($imagePath); ?>" alt="Uploaded image"
+                style="max-width: 300px; margin-top: 10px;">
         </div>
     <?php endif; ?>
     <!--enctype="multipart/form-data" required for uploads, will not send properly if not included -->
     <form method="post" enctype="multipart/form-data" class="mt-3">
         <label for="name" class="form-label">Product Name</label>
-        <input
-            type="text"
-            id="name"
-            name="name"
-            class="form-control mb-3"
-            required>
+        <input type="text" id="name" name="name" class="form-control mb-3" required>
 
         <label for="description" class="form-label">Description</label>
-        <textarea
-            id="description"
-            name="description"
-            class="form-control mb-3"
-            rows="4"
-            required></textarea>
+        <textarea id="description" name="description" class="form-control mb-3" rows="4" required></textarea>
 
         <label for="price" class="form-label">Price</label>
-        <input
-            type="number"
-            id="price"
-            name="price"
-            class="form-control mb-3"
-            step="0.01"
-            min="0"
-            required>
+        <input type="number" id="price" name="price" class="form-control mb-3" step="0.01" min="0" required>
 
         <label for="product_image" class="form-label">Product Image</label>
-        <input
-            type="file"
-            id="product_image"
-            name="product_image"
-            class="form-control mb-4"
+        <input type="file" id="product_image" name="product_image" class="form-control mb-4"
             accept=".jpg,.jpeg,.png,.webp">
 
         <button type="submit" class="btn btn-primary">Add Product</button>
